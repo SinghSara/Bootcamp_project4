@@ -12,7 +12,7 @@ def main():
     #Setting Application title
     st.title('Vehicle Insurance Claim Fraud Prediction App')
     html_temp = """
-    <div style="background-color:Blue;padding:20px">
+    <div style="background-color:Yellow;padding:20px">
     <h2 style="color:white;text-align:center;">Streamlit Vehicle Insurance Claim Fraud Prediction  </h2>
     </div>
     """
