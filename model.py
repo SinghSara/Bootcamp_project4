@@ -97,7 +97,12 @@ scaling_columns=[ 'AmountOfVehicleDamage', 'CapitalGains',
 
 for col in scaling_columns:
     minmax = MinMaxScaler()
+    scaler_file=col+"_scaler.pkl"
     df_new[col]=minmax.fit_transform(df_new[[col]])
+    pickle.dump(minmax, open(scaler_file,'wb'))
+pickle.dump(scaling_columns, open('scale_col.pkl','wb'))
+
+
 
 X,Y=df_new.loc[:, ~df_new.columns.isin(['ReportedFraud'])],df_new.loc[:, df_new.columns.isin(['ReportedFraud'])]
 

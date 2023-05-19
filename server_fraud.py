@@ -116,6 +116,12 @@ def main():
         
         features_df[col]=enc.transform(features_df[col])
 
+    scale_list=pickle.load(open("scale_col.pkl", 'rb'))
+    for col in scale_list:
+         scaler_name=col+"_scaler.pkl"
+         minmaxscaler=pickle.load(open(scaler_name, 'rb'))
+         features_df[col]=minmaxscaler.transform(features_df[[col]])
+    print(features_df)
     prediction = model.predict(features_df)
     if st.button('Predict'):
         if prediction == 1:
